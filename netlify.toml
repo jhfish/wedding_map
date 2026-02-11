@@ -1,0 +1,17 @@
+# Netlify configuration for Wedding Map
+
+[build]
+  publish = "."
+  
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    
+[[headers]]
+  for = "*.geojson"
+  [headers.values]
+    Content-Type = "application/geo+json"
+    Cache-Control = "public, max-age=3600"
