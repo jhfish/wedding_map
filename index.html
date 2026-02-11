@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buena Vista Wedding Guide Map</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+            max-width: 320px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .header p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .mapboxgl-popup-content {
+            padding: 15px;
+            max-width: 300px;
+        }
+        
+        .popup-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .popup-category {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .popup-note {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        
+        .popup-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .popup-link {
+            font-size: 13px;
+            color: #2c7fb8;
+            text-decoration: none;
+            padding: 6px 12px;
+            border: 1px solid #2c7fb8;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .popup-link:hover {
+            background: #2c7fb8;
+            color: white;
+        }
+        
+        .favorite-badge {
+            color: #f39c12;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+            font-size: 14px;
+        }
+        
+        .legend h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .legend-item {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                max-width: calc(100% - 40px);
+            }
+            
+            .legend {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎉 Buena Vista Wedding Guide</h1>
+        <p>Our favorite spots in town!</p>
+    </div>
+    
+    <div class="legend">
+        <h3>Categories</h3>
+        <div class="legend-item">🍽️ Food</div>
+        <div class="legend-item">☕ Coffee</div>
+        <div class="legend-item">🍸 Drinks</div>
+        <div class="legend-item">🛒 Essentials</div>
+        <div class="legend-item">🥾 Outdoors</div>
+        <div class="legend-item">⭐ = Favorite</div>
+    </div>
+    
+    <div id="map"></div>
+
+    <script>
+        // Replace 'YOUR_MAPBOX_TOKEN' with your actual Mapbox access token
+        // Get one free at https://account.mapbox.com/
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamhmaXNjaGVyNCIsImEiOiJjbWt4am5nY28wYWM2M21xN3cxM2EyN2NlIn0.opIjp5BYtkUvbrBAJLgMYw';
+        
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [-106.1295, 38.8425], // Centered on Buena Vista
+            zoom: 14.5
+        });
+        
+        // Add navigation controls
+        map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+        
+        map.on('load', () => {
+            // Add emoji markers for each place with cache busting
+            fetch('./places.geojson?t=' + Date.now())
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Loaded ' + data.features.length + ' places from GeoJSON');
+                    data.features.forEach((feature, index) => {
+                        const props = feature.properties;
+                        
+                        // Create marker element
+                        const el = document.createElement('div');
+                        el.innerHTML = props.icon;
+                        el.style.fontSize = '40px';
+                        el.style.cursor = 'pointer';
+                        el.style.textShadow = '2px 2px 4px rgba(0,0,0,0.5)';
+                        el.style.filter = 'drop-shadow(0 0 8px rgba(255,255,255,0.8))';
+                        
+                        // Create popup HTML
+                        const favoriteBadge = props.favorite === true || props.favorite === 'true' 
+                            ? '<span class="favorite-badge">⭐</span>' 
+                            : '';
+                        
+                        const websiteLink = props.website 
+                            ? `<a href="${props.website}" target="_blank" class="popup-link">Website</a>` 
+                            : '';
+                        
+                        const googleMapsLink = props.googleMaps 
+                            ? `<a href="${props.googleMaps}" target="_blank" class="popup-link">Google Maps</a>` 
+                            : '';
+                        
+                        const popupHTML = `
+                            <div class="popup-title">
+                                ${props.icon} ${props.name}${favoriteBadge}
+                            </div>
+                            <div class="popup-category">${props.category}</div>
+                            <div class="popup-note">${props.note}</div>
+                            <div class="popup-links">
+                                ${websiteLink}
+                                ${googleMapsLink}
+                            </div>
+                        `;
+                        
+                        // Create popup
+                        const markerPopup = new mapboxgl.Popup({
+                            offset: 25,
+                            closeButton: true,
+                            closeOnClick: false
+                        }).setHTML(popupHTML);
+                        
+                        // Add marker with popup (anchor set to center the emoji on coordinates)
+                        new mapboxgl.Marker({
+                            element: el,
+                            anchor: 'center'
+                        })
+                            .setLngLat(feature.geometry.coordinates)
+                            .setPopup(markerPopup)
+                            .addTo(map);
+                        
+                        console.log((index + 1) + '. Added marker for: ' + props.name);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading places.geojson:', error);
+                });
+        });
+    </script>
+</body>
+</html>
