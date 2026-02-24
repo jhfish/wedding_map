@@ -60,6 +60,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.1303899,
+          38.8422554
+        ]
+      },
+      "properties": {
+        "name": "The Blend",
+        "website": "https://www.theblendbv.com/",
+        "googleMaps": "https://www.google.com/maps/place/the+Blend+at+Buena+Vista/@38.8422074,-106.1300795,20.38z/data=!4m6!3m5!1s0x8715356961e1d51b:0xede5d8eec13fbd75!8m2!3d38.8422554!4d-106.1303899!16s%2Fg%2F11h7n2l2zy",
+        "favorite": true,
+        "note": "JH’s favorite breakfast spot... if you can beat the line.",
+        "icon": "🥯"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.129684,
           38.842917
         ]
@@ -195,7 +213,7 @@
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Barbara+Whipple+Trailhead/@38.8465958,-106.1225986,111m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x871535a752d7ca3d:0x3e1ea20dc4389fc3!8m2!3d38.8469127!4d-106.1222392!16s%2Fg%2F11g4h7rpxj?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
-        "note": "Scenic trailhead near River Park — easy hike and great views of Buena Vista and Collegiate Peaks. In town, the trail system runs on both sides of the river between two bridges. This is the best place to cross the river and hike up towards Midland Hill. ",
+        "note": "Scenic trailhead near River Park — easy hike and great views of Buena Vista and Collegiate Peaks. In town, the trail system runs on both sides of the river between two bridges. This is the best place to cross the river & there are plenty of trails to explore in addition to the path between the two bridges highlighted. ",
         "icon": "🥾"
       }
     },
@@ -431,6 +449,24 @@
         "favorite": false,
         "note": "The largest and most connected airport for getting to Buena Vista — about a 2.5 hour drive. Served by all major airlines with direct flights from across the country.",
         "icon": "✈️"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.0989201,
+          39.5893549
+        ]
+      },
+      "properties": {
+        "name": "Outer Range Brewing Co.",
+        "website": "https://outerrange.com/",
+        "googleMaps": "https://www.google.com/maps/place/Outer+Range+Brewing+Company/@39.5897316,-106.097321,17.72z/data=!4m6!3m5!1s0x876a5c2629293e9f:0x963e88e7943a9a89!8m2!3d39.5893549!4d-106.0989201!16s%2Fg%2F11c5_nbtbh",
+        "favorite": true,
+        "note": "One of our favorite lunch spots and a great rendezvous location. They also have a local coffee shop open in the mornings & \"thai-ish\" fried chicken.",
+        "icon": "📍"
       }
     },
     {

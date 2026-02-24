@@ -92,12 +92,60 @@
             font-size: 16px;
             margin-left: 5px;
         }
-        
+
+        .mapboxgl-popup-close-button {
+            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         @media (max-width: 768px) {
             .header {
-                max-width: calc(100% - 40px);
+                top: 12px;
+                left: 12px;
+                right: 12px;
+                max-width: none;
+                padding: 12px 16px;
             }
-            
+
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .mapboxgl-popup-content {
+                max-width: 80vw;
+            }
+
+            .popup-title {
+                font-size: 16px;
+            }
+
+            .popup-link {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+
+            .mapboxgl-ctrl-top-right {
+                top: 80px;
+            }
+
+            .mapboxgl-popup-close-button {
+                font-size: 22px;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                right: 0;
+            }
         }
     </style>
 </head>
@@ -135,14 +183,17 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-104.6737, 39.8561],
-                                [-104.88,   39.74],
-                                [-105.07,   39.60],
-                                [-105.35,   39.48],
-                                [-105.68,   39.34],
-                                [-105.99,   39.22],
-                                [-106.08,   38.97],
-                                [-106.119,  38.843]
+                                [-104.6737, 39.8561], // DEN
+                                [-104.90,   39.73],   // I-70 west through Denver
+                                [-105.11,   39.65],   // C-470/I-70 junction
+                                [-105.13,   39.57],   // US-285 / C-470 junction
+                                [-105.51,   39.48],   // Conifer
+                                [-105.48,   39.41],   // Bailey
+                                [-105.76,   39.43],   // Kenosha Pass
+                                [-106.00,   39.22],   // Fairplay
+                                [-106.00,   39.05],   // South on 285
+                                [-105.99,   38.88],   // Antero Junction (US-285 & US-24)
+                                [-106.119,  38.843]   // BV
                             ]
                         }
                     },
@@ -152,15 +203,16 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-104.7006, 38.8058],
-                                [-104.92,   38.86],
-                                [-105.06,   38.99],
-                                [-105.20,   38.94],
-                                [-105.43,   38.94],
-                                [-105.59,   39.04],
-                                [-105.81,   38.98],
-                                [-106.04,   38.88],
-                                [-106.119,  38.843]
+                                [-104.7006, 38.8058], // COS airport
+                                [-104.85,   38.83],   // West through CS on US-24
+                                [-104.918,  38.858],  // Manitou Springs
+                                [-105.058,  38.994],  // Woodland Park
+                                [-105.201,  38.944],  // Divide
+                                [-105.287,  38.932],  // Florissant
+                                [-105.540,  38.972],  // Lake George
+                                [-105.799,  38.989],  // Hartsel
+                                [-105.99,   38.88],   // Antero Junction (US-285 & US-24)
+                                [-106.119,  38.843]   // BV
                             ]
                         }
                     },
@@ -170,16 +222,18 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-104.6737, 39.8561],
-                                [-104.95,   39.75],
-                                [-105.35,   39.74],
-                                [-105.89,   39.68],
-                                [-106.07,   39.63],
-                                [-106.16,   39.50],
-                                [-106.24,   39.38],
-                                [-106.29,   39.25],
-                                [-106.29,   39.08],
-                                [-106.119,  38.843]
+                                [-104.6737, 39.8561], // DEN
+                                [-104.90,   39.74],   // I-70 west
+                                [-105.22,   39.75],   // Golden
+                                [-105.515,  39.742],  // Idaho Springs
+                                [-105.698,  39.706],  // Georgetown
+                                [-105.899,  39.681],  // Eisenhower Tunnel
+                                [-106.069,  39.629],  // Dillon/Silverthorne
+                                [-106.158,  39.503],  // Copper Mountain
+                                [-106.213,  39.402],  // CO-91 south junction
+                                [-106.292,  39.250],  // Leadville
+                                [-106.29,   39.08],   // South on US-24
+                                [-106.119,  38.843]   // BV
                             ]
                         }
                     },
@@ -189,12 +243,14 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-106.9356, 38.5372],
-                                [-106.67,   38.54],
-                                [-106.33,   38.49],
-                                [-106.08,   38.52],
-                                [-106.08,   38.72],
-                                [-106.119,  38.843]
+                                [-106.9356, 38.5372], // Gunnison airport
+                                [-106.67,   38.543],  // East on US-50
+                                [-106.467,  38.518],  // Parlin
+                                [-106.333,  38.497],  // Monarch Pass summit
+                                [-106.25,   38.482],  // East descent
+                                [-106.082,  38.518],  // Poncha Springs
+                                [-106.08,   38.72],   // North on 285
+                                [-106.119,  38.843]   // BV
                             ]
                         }
                     }
@@ -252,6 +308,80 @@
                 }
             });
 
+            // Bridge to Bridge Trail — real GPS data from MTB Project GPX
+            map.addSource('trail-b2b', {
+                type: 'geojson',
+                data: {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'LineString',
+                        coordinates: [
+                            [-106.121982, 38.846998],
+                            [-106.121596, 38.847061],
+                            [-106.120904, 38.846361],
+                            [-106.120949, 38.845809],
+                            [-106.12059,  38.845368],
+                            [-106.120158, 38.845011],
+                            [-106.119422, 38.844283],
+                            [-106.119036, 38.844374],
+                            [-106.119045, 38.844116],
+                            [-106.118919, 38.843892],
+                            [-106.118604, 38.8435],
+                            [-106.118488, 38.843276],
+                            [-106.118191, 38.843045],
+                            [-106.117976, 38.843136],
+                            [-106.11802,  38.843017],
+                            [-106.117976, 38.842667],
+                            [-106.117868, 38.842527],
+                            [-106.11767,  38.842506],
+                            [-106.117715, 38.842338],
+                            [-106.117661, 38.842205],
+                            [-106.117428, 38.84201],
+                            [-106.117329, 38.841856],
+                            [-106.117095, 38.841772],
+                            [-106.117005, 38.841688],
+                            [-106.116889, 38.841667],
+                            [-106.116907, 38.841429],
+                            [-106.11679,  38.841289],
+                            [-106.11732,  38.841086],
+                            [-106.117284, 38.840967],
+                            [-106.117347, 38.840855],
+                            [-106.117185, 38.840757],
+                            [-106.117014, 38.840057],
+                            [-106.116898, 38.839827],
+                            [-106.11696,  38.839792],
+                            [-106.117095, 38.83998],
+                            [-106.117185, 38.839987],
+                            [-106.117266, 38.839757],
+                            [-106.11723,  38.839631],
+                            [-106.117005, 38.839449],
+                            [-106.116916, 38.839337],
+                            [-106.117005, 38.839246],
+                            [-106.117185, 38.839246],
+                            [-106.117257, 38.839176]
+                        ]
+                    }
+                }
+            });
+
+            map.addLayer({
+                id: 'trail-b2b-casing',
+                type: 'line',
+                source: 'trail-b2b',
+                minzoom: 13,
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: { 'line-color': '#ffffff', 'line-width': 6, 'line-opacity': 0.6 }
+            });
+
+            map.addLayer({
+                id: 'trail-b2b-line',
+                type: 'line',
+                source: 'trail-b2b',
+                minzoom: 13,
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: { 'line-color': '#e03030', 'line-width': 3, 'line-opacity': 0.9 }
+            });
+
             // Add emoji markers for each place with cache busting
             fetch('./places.geojson?t=' + Date.now())
                 .then(response => response.json())
@@ -278,10 +408,10 @@
                             ? `<a href="${props.website}" target="_blank" class="popup-link">Website</a>` 
                             : '';
                         
-                        const googleMapsLink = props.googleMaps 
-                            ? `<a href="${props.googleMaps}" target="_blank" class="popup-link">Google Maps</a>` 
+                        const googleMapsLink = props.googleMaps
+                            ? `<a href="${props.googleMaps}" target="_blank" class="popup-link">Google Maps</a>`
                             : '';
-                        
+
                         const popupHTML = `
                             <div class="popup-title">
                                 ${props.icon} ${props.name}${favoriteBadge}
@@ -292,7 +422,7 @@
                                 ${googleMapsLink}
                             </div>
                         `;
-                        
+
                         // Create popup
                         const markerPopup = new mapboxgl.Popup({
                             offset: 25,
