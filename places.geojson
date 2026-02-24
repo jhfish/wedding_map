@@ -12,7 +12,6 @@
       },
       "properties": {
         "name": "Wesley & Rose",
-        "category": "Food",
         "website": "http://www.surfhotel.com/wesley-rose",
         "googleMaps": "https://www.google.com/maps/place/Wesley+%26+Rose+Lobby+Bar/@38.8422229,-106.1241018,1483m/data=!3m2!1e3!4b1!4m6!3m5!1s0x871535521ceb23c3:0x8a0884e206d2b957!8m2!3d38.842223!4d-106.1192309!16s%2Fg%2F11gpmsk_j0?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -31,7 +30,6 @@
       },
       "properties": {
         "name": "Joyful Bakery & Coffee",
-        "category": "Coffee",
         "website": "https://www.joyfulbv.com/",
         "googleMaps": "https://www.google.com/maps/place/Joyful+Bakery+%26+Coffee/@38.8412015,-106.1217736,1483m/data=!3m2!1e3!4b1!4m6!3m5!1s0x87153524528439b1:0xfc775324a941c06c!8m2!3d38.8412015!4d-106.1191987!16s%2Fg%2F11b868w0q1?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -50,7 +48,6 @@
       },
       "properties": {
         "name": "Coyote Mezcalería y Cervecería",
-        "category": "Drink",
         "website": "https://coyotebv.com/",
         "googleMaps": "https://www.google.com/maps/place/Coyote+Mezcaler%C3%ADa+y+Cervecer%C3%ADa/@38.8413994,-106.1189511,117m/data=!3m1!1e3!4m14!1m7!3m6!1s0x87153524528439b1:0xfc775324a941c06c!2sJoyful+Bakery+%26+Coffee!8m2!3d38.8412015!4d-106.1191987!16s%2Fg%2F11b868w0q1!3m5!1s0x8715359a52f16b17:0xfe1bf4fa18088c56!8m2!3d38.8411303!4d-106.1191174!16s%2Fg%2F11vxpvd1mg?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -69,7 +66,6 @@
       },
       "properties": {
         "name": "LoBäck’s Bakery",
-        "category": "Coffee",
         "website": "https://m.facebook.com/100057311634280/",
         "googleMaps": "https://www.google.com/maps/place/Loback's+Bakery/@38.8426969,-106.1299642,79m/data=!3m1!1e3!4m6!3m5!1s0x871535375e447403:0x95006ab869e8f85!8m2!3d38.842917!4d-106.129684!16s%2Fg%2F1tgwn4fq?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -88,7 +84,6 @@
       },
       "properties": {
         "name": "Buena Viking",
-        "category": "Food",
         "website": "http://www.buenaviking.com/",
         "googleMaps": "https://www.google.com/maps/place/The+Buena+Viking/@38.8429688,-106.1291496,80m/data=!3m1!1e3!4m6!3m5!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -107,7 +102,6 @@
       },
       "properties": {
         "name": "Simple Eatery",
-        "category": "Food",
         "website": "http://www.spoon-it-up.com/",
         "googleMaps": "https://www.google.com/maps/place/Simple+Eatery/@38.8429688,-106.1291496,80m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x8715353751ecf18f:0x732bf94c7ddaafb9!8m2!3d38.8430609!4d-106.1291955!16s%2Fg%2F11b6__23pg?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -126,7 +120,6 @@
       },
       "properties": {
         "name": "The Slammer",
-        "category": "Drink",
         "website": "http://bvslammer.com/",
         "googleMaps": "https://www.google.com/maps/place/Simple+Eatery/@38.8429688,-106.1291496,80m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x8715353751ecf18f:0x732bf94c7ddaafb9!8m2!3d38.8430609!4d-106.1291955!16s%2Fg%2F11b6__23pg?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -145,7 +138,6 @@
       },
       "properties": {
         "name": "The Lariat",
-        "category": "Late Night",
         "website": "http://thelariatbv.com/",
         "googleMaps": "https://www.google.com/maps/place/The+Lariat/@38.8422542,-106.1315554,43m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x871535382a3e0bed:0x3fc368f97cfe72a0!8m2!3d38.842298!4d-106.131719!16s%2Fg%2F1thks4jc?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -164,7 +156,6 @@
       },
       "properties": {
         "name": "Spark Provisions",
-        "category": "Essentials",
         "website": "https://www.sparkprovisions.com/",
         "googleMaps": "https://www.google.com/maps/place/Spark+Provisions/@38.8430065,-106.1290603,46m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x871535d6ac635aaf:0x6377c74fc1fcb7f9!8m2!3d38.8431628!4d-106.1288969!16s%2Fg%2F11r3mv237g?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -183,7 +174,6 @@
       },
       "properties": {
         "name": "Buena Vida Wine & Spirits",
-        "category": "Essentials",
         "website": "https://www.buenavidawineandspirits.com/",
         "googleMaps": "https://www.google.com/maps/place/Buena+Vida+Wine+%26+Spirits/@38.843004,-106.1226463,162m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x8715353af9b56623:0x4d8d6fe3b3dcc6bd!8m2!3d38.8429369!4d-106.1219966!16s%2Fg%2F11x973h89g?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -202,7 +192,6 @@
       },
       "properties": {
         "name": "Barbara Whipple Trailhead",
-        "category": "Hiking",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Barbara+Whipple+Trailhead/@38.8465958,-106.1225986,111m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x871535a752d7ca3d:0x3e1ea20dc4389fc3!8m2!3d38.8469127!4d-106.1222392!16s%2Fg%2F11g4h7rpxj?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": true,
@@ -221,7 +210,6 @@
       },
       "properties": {
         "name": "Midland Tunnels ",
-        "category": "Scenic",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Midland+Tunnels/@38.8761419,-106.1459679,126m/data=!3m1!1e3!4m6!3m5!1s0x876aca90af4367fd:0x7eddcbc2f06f4adf!8m2!3d38.8763448!4d-106.1458924!16s%2Fg%2F11fxx46zp_?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -240,7 +228,6 @@
       },
       "properties": {
         "name": "K's Dairy ",
-        "category": "Food",
         "website": "https://ksdairydelite.com/",
         "googleMaps": "https://www.google.com/maps/place/K's+Dairy+Delite/@38.8401085,-106.1315049,121m/data=!3m1!1e3!4m6!3m5!1s0x87153538528d07a5:0x58daba485ed364c4!8m2!3d38.8401185!4d-106.1316667!16s%2Fg%2F1tf9t8nc?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -259,7 +246,6 @@
       },
       "properties": {
         "name": "Eddyline Brewery",
-        "category": "Food",
         "website": "http://eddylinebrewing.com/",
         "googleMaps": "https://www.google.com/maps/place/Eddyline+Restaurant+%7C+South+Main/@38.8415316,-106.1198006,109m/data=!3m1!1e3!4m6!3m5!1s0x87153525ab4cffdb:0xd2d577c90b47bcb8!8m2!3d38.841287!4d-106.11956!16s%2Fg%2F1td6spkh?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -278,7 +264,6 @@
       },
       "properties": {
         "name": "Pickleball Courts ",
-        "category": "Sports",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/River+Park+Tennis+%26+Pickleball+Courts/@38.8446328,-106.1238962,120m/data=!3m1!1e3!4m6!3m5!1s0x8715359a2efe3825:0xbcf865c1e829aeae!8m2!3d38.8444292!4d-106.1244061!16s%2Fg%2F11v09f1jj5?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -297,7 +282,6 @@
       },
       "properties": {
         "name": "Surf Wave ",
-        "category": "Scenic",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Staircase+River+Surf+Wave/@38.8444351,-106.1206307,91m/data=!3m1!1e3!4m6!3m5!1s0x8715359573078809:0x4d3c5484c2be49f7!8m2!3d38.844297!4d-106.120181!16s%2Fg%2F11t_r52h65?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -316,7 +300,6 @@
       },
       "properties": {
         "name": "Ceremony ",
-        "category": "Wedding",
         "website": "",
         "googleMaps": "",
         "favorite": false,
@@ -335,7 +318,6 @@
       },
       "properties": {
         "name": "Fish Spot",
-        "category": "Fishing",
         "website": "",
         "googleMaps": "",
         "favorite": false,
@@ -354,7 +336,6 @@
       },
       "properties": {
         "name": "Cottonwood Pass ",
-        "category": "Views",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Cottonwood+Pass+West+Lookout/@38.8456143,-106.4146756,1074m/data=!3m1!1e3!4m6!3m5!1s0x876aaded57eef85d:0x746ad59d5a507969!8m2!3d38.8452566!4d-106.4165384!16s%2Fg%2F11krrz7xbp?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -373,7 +354,6 @@
       },
       "properties": {
         "name": "Crave BV",
-        "category": "Food",
         "website": "https://cravebv.com",
         "googleMaps": "https://www.google.com/maps/place/Crave+BV/@38.8424968,-106.1303233,114a,54.7y,3.52t/data=!3m1!1e3!4m6!3m5!1s0x871535bee28b3d2d:0xd4a61018c1f946a4!8m2!3d38.842563!4d-106.130705!16s%2Fg%2F11nwb_l8y8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
@@ -392,12 +372,83 @@
       },
       "properties": {
         "name": "Terrace On Main",
-        "category": "Wedding Welcome Party",
         "website": "",
         "googleMaps": "https://www.google.com/maps/place/Terrace+On+Main/@38.8430093,-106.1294345,131a,48y,4.16t/data=!3m1!1e3!4m6!3m5!1s0x871535d7df757a67:0x6a98dce71369026b!8m2!3d38.8429567!4d-106.1295425!16s%2Fg%2F11sy3wfy73?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
         "note": "Join us on Friday night here for live music & drinks around 7:30 pm!",
         "icon": "🎉"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.119403,
+          38.840504
+        ]
+      },
+      "properties": {
+        "name": "Parking",
+        "website": "",
+        "googleMaps": "",
+        "favorite": false,
+        "note": "Easiest place to park.",
+        "icon": "🅿️"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.935603,
+          38.5371548
+        ]
+      },
+      "properties": {
+        "name": "Gunnison-Crested Butte Regional Airport",
+        "website": "",
+        "googleMaps": "https://www.google.com/maps/place/Gunnison%E2%80%93Crested+Butte+Regional+Airport/@38.5366759,-106.9330858,2000a,35y,3.25t/data=!3m1!1e3!4m6!3m5!1s0x873f92dfa73dcfa9:0xeda31d49df1f15d0!8m2!3d38.5371548!4d-106.935603!16zL20vMDcxcmc2?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
+        "favorite": false,
+        "note": "Gunnison is the closest airport, but offers limited flights relative to Denver.\n\nMajor Airlines & Hubs:\nUnited Airlines: Denver (DEN), Chicago (ORD), Houston (IAH)\nAmerican Airlines: Dallas/Fort Worth (DFW), Chicago (ORD)\nDelta Air Lines: Atlanta (ATL)\nJSX: Dallas",
+        "icon": "✈️"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.6737,
+          39.8561
+        ]
+      },
+      "properties": {
+        "name": "Denver International Airport (DEN)",
+        "website": "",
+        "googleMaps": "https://www.google.com/maps/place/Denver+International+Airport/@39.8561,-104.6737,14z",
+        "favorite": false,
+        "note": "The largest and most connected airport for getting to Buena Vista — about a 2.5 hour drive. Served by all major airlines with direct flights from across the country.",
+        "icon": "✈️"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.7006,
+          38.8058
+        ]
+      },
+      "properties": {
+        "name": "Colorado Springs Airport (COS)",
+        "website": "",
+        "googleMaps": "https://www.google.com/maps/place/Colorado+Springs+Airport/@38.8058,-104.7006,14z",
+        "favorite": false,
+        "note": "A smaller regional airport about 2 hours from Buena Vista. Fewer flight options than Denver but a convenient alternative for those coming from certain hubs.\n\nMajor Airlines:\nUnited Airlines, American Airlines, Delta Air Lines, Southwest Airlines",
+        "icon": "✈️"
       }
     }
   ]
