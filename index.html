@@ -117,14 +117,141 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v12',
-            center: [-106.1295, 38.8425], // Centered on Buena Vista
-            zoom: 14.5
+            center: [-105.8, 39.2], // Centered to show all airport routes
+            zoom: 8
         });
         
         // Add navigation controls
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
         
         map.on('load', () => {
+            // Draw airport routes (visible when zoomed out)
+            const routeData = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: { label: 'Denver  ~2.5 hrs' },
+                        geometry: {
+                            type: 'LineString',
+                            coordinates: [
+                                [-104.6737, 39.8561],
+                                [-104.88,   39.74],
+                                [-105.07,   39.60],
+                                [-105.35,   39.48],
+                                [-105.68,   39.34],
+                                [-105.99,   39.22],
+                                [-106.08,   38.97],
+                                [-106.119,  38.843]
+                            ]
+                        }
+                    },
+                    {
+                        type: 'Feature',
+                        properties: { label: 'Colorado Springs  ~2 hrs' },
+                        geometry: {
+                            type: 'LineString',
+                            coordinates: [
+                                [-104.7006, 38.8058],
+                                [-104.92,   38.86],
+                                [-105.06,   38.99],
+                                [-105.20,   38.94],
+                                [-105.43,   38.94],
+                                [-105.59,   39.04],
+                                [-105.81,   38.98],
+                                [-106.04,   38.88],
+                                [-106.119,  38.843]
+                            ]
+                        }
+                    },
+                    {
+                        type: 'Feature',
+                        properties: { label: 'Denver via I-70 & Leadville  ~2h 45m' },
+                        geometry: {
+                            type: 'LineString',
+                            coordinates: [
+                                [-104.6737, 39.8561],
+                                [-104.95,   39.75],
+                                [-105.35,   39.74],
+                                [-105.89,   39.68],
+                                [-106.07,   39.63],
+                                [-106.16,   39.50],
+                                [-106.24,   39.38],
+                                [-106.29,   39.25],
+                                [-106.29,   39.08],
+                                [-106.119,  38.843]
+                            ]
+                        }
+                    },
+                    {
+                        type: 'Feature',
+                        properties: { label: 'Gunnison  ~1 hr' },
+                        geometry: {
+                            type: 'LineString',
+                            coordinates: [
+                                [-106.9356, 38.5372],
+                                [-106.67,   38.54],
+                                [-106.33,   38.49],
+                                [-106.08,   38.52],
+                                [-106.08,   38.72],
+                                [-106.119,  38.843]
+                            ]
+                        }
+                    }
+                ]
+            };
+
+            map.addSource('routes', { type: 'geojson', data: routeData });
+
+            // Casing (white outline) for readability
+            map.addLayer({
+                id: 'routes-casing',
+                type: 'line',
+                source: 'routes',
+                maxzoom: 11,
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                    'line-color': '#ffffff',
+                    'line-width': 6,
+                    'line-opacity': 0.6
+                }
+            });
+
+            // Main route line
+            map.addLayer({
+                id: 'routes-line',
+                type: 'line',
+                source: 'routes',
+                maxzoom: 11,
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                    'line-color': '#e07b00',
+                    'line-width': 3,
+                    'line-opacity': 0.85,
+                    'line-dasharray': [4, 3]
+                }
+            });
+
+            // Drive time labels along each route
+            map.addLayer({
+                id: 'routes-labels',
+                type: 'symbol',
+                source: 'routes',
+                maxzoom: 11,
+                layout: {
+                    'symbol-placement': 'line-center',
+                    'text-field': ['get', 'label'],
+                    'text-size': 12,
+                    'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, -1]
+                },
+                paint: {
+                    'text-color': '#e07b00',
+                    'text-halo-color': '#ffffff',
+                    'text-halo-width': 2
+                }
+            });
+
             // Add emoji markers for each place with cache busting
             fetch('./places.geojson?t=' + Date.now())
                 .then(response => response.json())

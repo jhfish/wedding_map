@@ -88,7 +88,7 @@
         "googleMaps": "https://www.google.com/maps/place/The+Buena+Viking/@38.8429688,-106.1291496,80m/data=!3m1!1e3!4m6!3m5!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
         "note": "Great spot on Main Street known for gourmet burgers — worth the wait.",
-        "icon": "🍽️"
+        "icon": "🍔"
       }
     },
     {
@@ -142,7 +142,7 @@
         "googleMaps": "https://www.google.com/maps/place/The+Lariat/@38.8422542,-106.1315554,43m/data=!3m1!1e3!4m14!1m7!3m6!1s0x871535424b54a9ab:0xe3ac4a1be5c8801f!2sThe+Buena+Viking!8m2!3d38.843308!4d-106.128379!16s%2Fg%2F11g0lgwd4_!3m5!1s0x871535382a3e0bed:0x3fc368f97cfe72a0!8m2!3d38.842298!4d-106.131719!16s%2Fg%2F1thks4jc?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
         "note": "Late night spot for the party animals.",
-        "icon": "📍"
+        "icon": "🍺"
       }
     },
     {
@@ -232,7 +232,7 @@
         "googleMaps": "https://www.google.com/maps/place/K's+Dairy+Delite/@38.8401085,-106.1315049,121m/data=!3m1!1e3!4m6!3m5!1s0x87153538528d07a5:0x58daba485ed364c4!8m2!3d38.8401185!4d-106.1316667!16s%2Fg%2F1tf9t8nc?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
         "favorite": false,
         "note": "Calssic tasty Freeze. Burgers, shakes, etc. ",
-        "icon": "🍽️"
+        "icon": "🥤"
       }
     },
     {
@@ -431,6 +431,24 @@
         "favorite": false,
         "note": "The largest and most connected airport for getting to Buena Vista — about a 2.5 hour drive. Served by all major airlines with direct flights from across the country.",
         "icon": "✈️"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.2916043,
+          39.2471529
+        ]
+      },
+      "properties": {
+        "name": "Buchi Cafe Cubano",
+        "website": "https://buchicafecubano.com/",
+        "googleMaps": "https://www.google.com/maps/place/Buchi+Cafe+Cubano/@39.2471078,-106.2912867,19z/data=!4m6!3m5!1s0x876a912ad836c33f:0x2a978c329e9f6157!8m2!3d39.2471529!4d-106.2916043!16s%2Fg%2F11h41w7wd7",
+        "favorite": false,
+        "note": "A cuban worth the stop if you pass through. Plus you can say you checked out the highest incorporated city in the United States.",
+        "icon": "🥪"
       }
     },
     {
