@@ -362,5 +362,43 @@
         "icon": "📍"
       }
     }
+    ,{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.130705,
+          38.842563
+        ]
+      },
+      "properties": {
+        "name": "Crave BV",
+        "category": "Food",
+        "website": "https://cravebv.com",
+        "googleMaps": "https://www.google.com/maps/place/Crave+BV/@38.8424968,-106.1303233,114a,54.7y,3.52t/data=!3m1!1e3!4m6!3m5!1s0x871535bee28b3d2d:0xd4a61018c1f946a4!8m2!3d38.842563!4d-106.130705!16s%2Fg%2F11nwb_l8y8?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
+        "favorite": false,
+        "note": "Go-to pizza spot in town. Typically gets you in pretty quick.",
+        "icon": "🍕"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.1295425,
+          38.8429567
+        ]
+      },
+      "properties": {
+        "name": "Terrace On Main",
+        "category": "Wedding Welcome Party",
+        "website": "",
+        "googleMaps": "https://www.google.com/maps/place/Terrace+On+Main/@38.8430093,-106.1294345,131a,48y,4.16t/data=!3m1!1e3!4m6!3m5!1s0x871535d7df757a67:0x6a98dce71369026b!8m2!3d38.8429567!4d-106.1295425!16s%2Fg%2F11sy3wfy73?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D",
+        "favorite": false,
+        "note": "Join us on Friday night here for live music & drinks around 7:30 pm!",
+        "icon": "🎉"
+      }
+    }
   ]
 }
