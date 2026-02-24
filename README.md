@@ -5,28 +5,27 @@ An interactive map showcasing favorite spots in Buena Vista, Colorado for weddin
 ## Features
 
 - 🗺️ Interactive Mapbox map with custom emoji markers
-- 📍 19 curated locations including restaurants, coffee shops, bars, and outdoor activities
-- 🎨 Color-coded categories (Food, Coffee, Drinks, Essentials, Hiking, etc.)
+- 📍 25+ curated locations including restaurants, coffee shops, bars, and outdoor activities
 - 💬 Detailed popups with notes, website links, and Google Maps directions
 - ⭐ Favorite spots highlighted
+- ✈️ Airport driving routes from Denver (US-285 & I-70/Leadville), Colorado Springs, and Gunnison
+- 🥾 Bridge to Bridge Trail highlighted on the map (real GPS data)
 - 📱 Fully responsive design
 
 ## Locations
 
 The map includes downtown Buena Vista favorites and nearby attractions:
-- **Food & Coffee**: Wesley & Rose, Joyful Bakery, LoBäck's, Buena Viking, K's Dairy, Eddyline Brewery
-- **Drinks**: Coyote Mezcalería, The Slammer, The Lariat
-- **Essentials**: Spark Provisions, Buena Vida Wine & Spirits
-- **Outdoors**: Barbara Whipple Trailhead, Pickleball Courts, Surf Wave
-- **Scenic**: Midland Tunnels, Cottonwood Pass
+- **Food**: Wesley & Rose, Joyful Bakery, LoBäck's, Buena Viking, Simple Eatery, Crave BV, Terrace On Main, Buchi Cafe Cubano
+- **Breakfast**: The Blend
+- **Coffee & Drinks**: K's Dairy, Coyote Mezcalería, The Slammer, The Lariat, Eddyline Brewery
+- **Lunch/Dinner out of town**: Outer Range Brewing Co. (Frisco)
+- **Essentials**: Spark Provisions, Buena Vida Wine & Spirits, Parking
+- **Outdoors**: Barbara Whipple Trailhead, Pickleball Courts, Surf Wave, Cottonwood Pass, Midland Tunnels
 - **Wedding**: Ceremony location
 
 ## Deployment
 
-This site is ready to deploy on:
-- **Netlify**: Connect your GitHub repo and deploy
-- **Vercel**: Import from GitHub
-- **GitHub Pages**: Enable in repository settings
+This site is deployed on Netlify via GitHub.
 
 ### Netlify Deployment
 
