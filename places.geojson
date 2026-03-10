@@ -456,6 +456,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.1227863,
+          38.8457677
+        ]
+      },
+      "properties": {
+        "name": "River Park Pavilion",
+        "website": "",
+        "googleMaps": "https://www.google.com/maps/place/River+Park+Pavilion/@38.845255,-106.124482,308m/data=!3m1!1e3!4m9!1m2!2m1!1sgoogle+maps!3m5!1s0x871535267cba4a7b:0xd5a2dd8619372578!8m2!3d38.8457677!4d-106.1227863!16s%2Fg%2F11h77yqjx_?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D",
+        "favorite": false,
+        "note": "This is a great place to have a picnic.",
+        "icon": "🧺"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.0989201,
           39.5893549
         ]
