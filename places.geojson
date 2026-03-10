@@ -474,6 +474,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -106.063225,
+          39.6268943
+        ]
+      },
+      "properties": {
+        "name": "Blue Moon Bakery",
+        "website": "https://www.bluemoonbakerysalida.com/",
+        "googleMaps": "https://www.google.com/maps/place/Blue+Moon+Bakery/@39.627042,-106.063488,162m/data=!3m1!1e3!4m9!1m2!2m1!1sgoogle+maps!3m5!1s0x876a5b80b87b4c47:0x865fba8c0246261e!8m2!3d39.6268943!4d-106.063225!16s%2Fg%2F1tdftmqb?entry=ttu&g_ep=EgoyMDI2MDMwNS4wIKXMDSoASAFQAw%3D%3D",
+        "favorite": false,
+        "note": "Great highway stop for breakfast burritos or lunch sandwiches.",
+        "icon": "🥪"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.2916043,
           39.2471529
         ]

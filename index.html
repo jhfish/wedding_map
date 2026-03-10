@@ -106,6 +106,43 @@
             justify-content: center;
         }
 
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .zoom-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .zoom-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: #ccc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .zoom-btn:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
         @media (max-width: 768px) {
             .header {
                 top: 12px;
@@ -159,6 +196,10 @@
         <p>Our favorite spots in town!</p>
     </div>
     
+    <div class="zoom-controls">
+        <button id="zoomToTown" class="zoom-btn">See Travel Routes</button>
+    </div>
+    
     <div id="map"></div>
 
     <script>
@@ -169,13 +210,40 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v12',
-            center: [-105.8, 39.2], // Centered to show all airport routes
-            zoom: 8
+            center: [-106.119, 38.843], // Centered on Buena Vista town (more precise)
+            zoom: 14 // Zoomed in further to show town details
         });
         
         // Add navigation controls
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
         
+        // Zoom control functionality
+        let isShowingRoutes = false;
+        
+        document.getElementById('zoomToTown').addEventListener('click', () => {
+            if (isShowingRoutes) {
+                // Zoom back to town
+                map.flyTo({
+                    center: [-106.12, 38.84],
+                    zoom: 13,
+                    speed: 1.2,
+                    curve: 1.4
+                });
+                document.getElementById('zoomToTown').textContent = 'See Travel Routes';
+                isShowingRoutes = false;
+            } else {
+                // Zoom out to show routes
+                map.flyTo({
+                    center: [-105.8, 39.2],
+                    zoom: 8,
+                    speed: 1.2,
+                    curve: 1.4
+                });
+                document.getElementById('zoomToTown').textContent = 'See Town';
+                isShowingRoutes = true;
+            }
+        });
+
         map.on('load', () => {
             // Draw airport routes (visible when zoomed out)
             const routeData = {
@@ -187,17 +255,48 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-104.6737, 39.8561], // DEN
-                                [-104.90,   39.73],   // I-70 west through Denver
-                                [-105.11,   39.65],   // C-470/I-70 junction
-                                [-105.13,   39.57],   // US-285 / C-470 junction
-                                [-105.51,   39.48],   // Conifer
-                                [-105.48,   39.41],   // Bailey
-                                [-105.76,   39.43],   // Kenosha Pass
-                                [-106.00,   39.22],   // Fairplay
-                                [-106.00,   39.05],   // South on 285
-                                [-105.99,   38.88],   // Antero Junction (US-285 & US-24)
-                                [-106.119,  38.843]   // BV
+                                [-104.6737, 39.8561], // DEN airport
+                                [-104.694,  39.845],  // Pena Blvd south
+                                [-104.723,  39.779],  // I-70 west onto I-225
+                                [-104.790,  39.737],  // I-70 through Aurora
+                                [-104.858,  39.733],  // I-70 Denver east
+                                [-104.984,  39.740],  // I-70 through Denver
+                                [-105.050,  39.740],  // I-70 near Federal
+                                [-105.102,  39.740],  // I-70 near Wheat Ridge
+                                [-105.142,  39.737],  // I-70 Lakewood
+                                [-105.178,  39.726],  // I-70 Morrison Rd exit
+                                [-105.213,  39.710],  // I-70 approaching foothills
+                                [-105.238,  39.695],  // I-70 C-470 junction — take C-470 south
+                                [-105.248,  39.647],  // C-470 south
+                                [-105.243,  39.604],  // C-470 / US-285 junction — take US-285 SW
+                                [-105.280,  39.565],  // US-285 through Conifer area
+                                [-105.340,  39.528],  // US-285 Conifer
+                                [-105.393,  39.493],  // US-285 south
+                                [-105.433,  39.460],  // US-285 Pine Junction
+                                [-105.465,  39.424],  // US-285 Bailey
+                                [-105.491,  39.406],  // US-285 south of Bailey
+                                [-105.534,  39.393],  // US-285 Shawnee
+                                [-105.590,  39.386],  // US-285 Grant
+                                [-105.653,  39.390],  // US-285 Webster
+                                [-105.712,  39.400],  // US-285 Kenosha Pass approach
+                                [-105.758,  39.415],  // US-285 Kenosha Pass summit
+                                [-105.807,  39.405],  // US-285 descending toward South Park
+                                [-105.853,  39.381],  // US-285 Jefferson
+                                [-105.895,  39.349],  // US-285 through South Park
+                                [-105.930,  39.312],  // US-285 Antero Reservoir
+                                [-105.970,  39.262],  // US-285 Fairplay
+                                [-106.000,  39.225],  // US-285 Fairplay south
+                                [-106.004,  39.181],  // US-285 south of Fairplay
+                                [-106.007,  39.133],  // US-285 Hartsel junction
+                                [-106.006,  39.085],  // US-285 continuing south
+                                [-105.998,  39.040],  // US-285 Antero Junction approach
+                                [-105.990,  38.993],  // US-285 / US-24 Antero Junction
+                                [-106.014,  38.964],  // US-24 west toward BV
+                                [-106.042,  38.942],  // US-24 west
+                                [-106.068,  38.921],  // US-24 approaching Buena Vista
+                                [-106.092,  38.899],  // US-24 into BV
+                                [-106.110,  38.878],  // US-24 BV approach
+                                [-106.119,  38.843]   // Buena Vista
                             ]
                         }
                     },
@@ -208,15 +307,33 @@
                             type: 'LineString',
                             coordinates: [
                                 [-104.7006, 38.8058], // COS airport
-                                [-104.85,   38.83],   // West through CS on US-24
-                                [-104.918,  38.858],  // Manitou Springs
-                                [-105.058,  38.994],  // Woodland Park
-                                [-105.201,  38.944],  // Divide
-                                [-105.287,  38.932],  // Florissant
-                                [-105.540,  38.972],  // Lake George
-                                [-105.799,  38.989],  // Hartsel
-                                [-105.99,   38.88],   // Antero Junction (US-285 & US-24)
-                                [-106.119,  38.843]   // BV
+                                [-104.714,  38.820],  // Airport Rd to US-24
+                                [-104.762,  38.833],  // US-24 west through Colorado Springs
+                                [-104.811,  38.837],  // US-24 west through CS
+                                [-104.852,  38.840],  // US-24 Old Colorado City
+                                [-104.893,  38.848],  // US-24 Manitou Springs
+                                [-104.932,  38.861],  // US-24 past Manitou
+                                [-104.975,  38.888],  // US-24 through Ute Pass
+                                [-105.015,  38.923],  // US-24 Cascade
+                                [-105.047,  38.953],  // US-24 Woodland Park
+                                [-105.087,  38.973],  // US-24 west of Woodland Park
+                                [-105.131,  38.977],  // US-24 Divide junction
+                                [-105.173,  38.965],  // US-24 west of Divide
+                                [-105.221,  38.951],  // US-24 Florissant
+                                [-105.283,  38.946],  // US-24 Lake George
+                                [-105.358,  38.966],  // US-24 west
+                                [-105.435,  38.984],  // US-24 Hartsel area
+                                [-105.511,  38.992],  // US-24 west of Hartsel
+                                [-105.599,  38.989],  // US-24 Antero area
+                                [-105.680,  38.983],  // US-24 continuing west
+                                [-105.755,  38.984],  // US-24 approaching junction
+                                [-105.830,  38.975],  // US-24 near Antero Reservoir
+                                [-105.900,  38.950],  // US-24 / US-285 junction
+                                [-105.960,  38.915],  // US-24 west toward BV
+                                [-106.000,  38.893],  // US-24 approaching BV
+                                [-106.042,  38.870],  // US-24 into BV area
+                                [-106.080,  38.857],  // US-24 BV approach
+                                [-106.119,  38.843]   // Buena Vista
                             ]
                         }
                     },
@@ -226,18 +343,52 @@
                         geometry: {
                             type: 'LineString',
                             coordinates: [
-                                [-104.6737, 39.8561], // DEN
-                                [-104.90,   39.74],   // I-70 west
-                                [-105.22,   39.75],   // Golden
-                                [-105.515,  39.742],  // Idaho Springs
-                                [-105.698,  39.706],  // Georgetown
-                                [-105.899,  39.681],  // Eisenhower Tunnel
-                                [-106.069,  39.629],  // Dillon/Silverthorne
-                                [-106.158,  39.503],  // Copper Mountain
-                                [-106.213,  39.402],  // CO-91 south junction
-                                [-106.292,  39.250],  // Leadville
-                                [-106.29,   39.08],   // South on US-24
-                                [-106.119,  38.843]   // BV
+                                [-104.6737, 39.8561], // DEN airport
+                                [-104.694,  39.845],  // Pena Blvd
+                                [-104.723,  39.779],  // I-70 west
+                                [-104.790,  39.737],  // I-70 Aurora
+                                [-104.858,  39.733],  // I-70 Denver
+                                [-104.984,  39.740],  // I-70 west Denver
+                                [-105.102,  39.740],  // I-70 Wheat Ridge
+                                [-105.178,  39.726],  // I-70 Lakewood
+                                [-105.213,  39.710],  // I-70 foothills
+                                [-105.250,  39.695],  // I-70 Morrison
+                                [-105.310,  39.725],  // I-70 El Rancho
+                                [-105.360,  39.740],  // I-70 Bergen Park
+                                [-105.410,  39.747],  // I-70 Evergreen
+                                [-105.462,  39.747],  // I-70 Floyd Hill
+                                [-105.512,  39.743],  // I-70 Idaho Springs approach
+                                [-105.515,  39.742],  // I-70 Idaho Springs
+                                [-105.566,  39.734],  // I-70 Empire Junction
+                                [-105.618,  39.720],  // I-70 Georgetown approach
+                                [-105.698,  39.706],  // I-70 Georgetown
+                                [-105.753,  39.697],  // I-70 Silver Plume
+                                [-105.810,  39.688],  // I-70 east portal Eisenhower Tunnel
+                                [-105.862,  39.681],  // I-70 Eisenhower Tunnel
+                                [-105.899,  39.681],  // I-70 west portal
+                                [-105.941,  39.670],  // I-70 Silverthorne approach
+                                [-105.980,  39.647],  // I-70 Silverthorne
+                                [-106.028,  39.638],  // I-70 Dillon
+                                [-106.069,  39.629],  // I-70 Frisco
+                                [-106.115,  39.565],  // I-70 Copper Mountain approach
+                                [-106.143,  39.523],  // I-70 Copper Mountain
+                                [-106.158,  39.503],  // I-70 / CO-91 junction — take CO-91 south
+                                [-106.180,  39.467],  // CO-91 south
+                                [-106.205,  39.430],  // CO-91 Climax
+                                [-106.225,  39.393],  // CO-91 descending to Leadville
+                                [-106.252,  39.362],  // CO-91 Leadville north
+                                [-106.292,  39.250],  // US-24 Leadville
+                                [-106.306,  39.209],  // US-24 south of Leadville
+                                [-106.313,  39.165],  // US-24 Twin Lakes area
+                                [-106.320,  39.118],  // US-24 south
+                                [-106.310,  39.073],  // US-24 continuing south
+                                [-106.290,  39.028],  // US-24 Granite
+                                [-106.265,  38.990],  // US-24 south
+                                [-106.240,  38.952],  // US-24 approaching BV
+                                [-106.210,  38.920],  // US-24 BV north approach
+                                [-106.175,  38.895],  // US-24 into BV
+                                [-106.145,  38.872],  // US-24 BV approach
+                                [-106.119,  38.843]   // Buena Vista
                             ]
                         }
                     },
@@ -248,13 +399,34 @@
                             type: 'LineString',
                             coordinates: [
                                 [-106.9356, 38.5372], // Gunnison airport
-                                [-106.67,   38.543],  // East on US-50
-                                [-106.467,  38.518],  // Parlin
-                                [-106.333,  38.497],  // Monarch Pass summit
-                                [-106.25,   38.482],  // East descent
-                                [-106.082,  38.518],  // Poncha Springs
-                                [-106.08,   38.72],   // North on 285
-                                [-106.119,  38.843]   // BV
+                                [-106.923,  38.538],  // Airport Rd to US-50
+                                [-106.893,  38.541],  // US-50 east
+                                [-106.857,  38.543],  // US-50 east of Gunnison
+                                [-106.813,  38.544],  // US-50 Mee Canyon area
+                                [-106.768,  38.541],  // US-50 east
+                                [-106.725,  38.538],  // US-50 Parlin approach
+                                [-106.677,  38.534],  // US-50 Parlin
+                                [-106.628,  38.526],  // US-50 east of Parlin
+                                [-106.577,  38.516],  // US-50 east
+                                [-106.525,  38.506],  // US-50 Moffat area
+                                [-106.476,  38.499],  // US-50 Monarch Pass approach
+                                [-106.432,  38.493],  // US-50 ascending Monarch Pass
+                                [-106.397,  38.489],  // US-50 Monarch Pass
+                                [-106.359,  38.491],  // US-50 summit area
+                                [-106.329,  38.498],  // US-50 east descent
+                                [-106.294,  38.510],  // US-50 descending
+                                [-106.262,  38.519],  // US-50 Maysville
+                                [-106.228,  38.519],  // US-50 Poncha Springs approach
+                                [-106.192,  38.516],  // US-50 Poncha Springs
+                                [-106.157,  38.517],  // US-50 / US-285 junction — turn north
+                                [-106.138,  38.553],  // US-285 north
+                                [-106.123,  38.596],  // US-285 north
+                                [-106.107,  38.641],  // US-285 north
+                                [-106.098,  38.688],  // US-285 north
+                                [-106.095,  38.737],  // US-285 approaching BV
+                                [-106.100,  38.778],  // US-285 / US-24 junction
+                                [-106.108,  38.810],  // US-24 into BV
+                                [-106.119,  38.843]   // Buena Vista
                             ]
                         }
                     }
